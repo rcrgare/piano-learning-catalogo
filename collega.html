@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#244e44" />
+  <meta name="robots" content="noindex" />
+  <title>Piano Learning – Collega la tua cartella</title>
+  <style>
+    :root { --bg:#f6f3ec; --card:#fffef8; --ink:#18231f; --muted:#5b6862; --brand:#244e44; --accent:#edbe64; --ok:#1f7a4d; --bad:#a33a2b; --line:#dcd6c8; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#101b27; --card:#17283a; --ink:#f6f3ec; --muted:#a9b6c2; --brand:#7fc3a9; --line:#38516a; --ok:#6fd39f; --bad:#ff8b7a; }
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif; }
+    main { max-width:640px; margin:0 auto; padding:20px 16px 48px; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:700; color:var(--brand); letter-spacing:.04em; font-size:14px; text-transform:uppercase; }
+    h1 { font-size:26px; line-height:1.2; margin:12px 0 8px; }
+    .lead { color:var(--muted); margin:0 0 20px; }
+    ol { padding:0; margin:0; list-style:none; counter-reset:s; display:grid; gap:12px; }
+    li { counter-increment:s; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 14px 14px 56px; position:relative; }
+    li::before { content:counter(s); position:absolute; left:14px; top:12px; width:30px; height:30px; border-radius:50%; background:var(--brand); color:var(--bg); display:grid; place-items:center; font-weight:700; }
+    li strong { display:block; }
+    .tool { margin-top:20px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; display:grid; gap:10px; }
+    input { width:100%; font:inherit; padding:12px; border-radius:10px; border:1px solid var(--line); background:var(--bg); color:var(--ink); }
+    .row { display:flex; gap:10px; flex-wrap:wrap; }
+    a.btn, button { font:inherit; font-weight:600; border:0; border-radius:10px; padding:12px 16px; background:var(--brand); color:var(--bg); text-decoration:none; cursor:pointer; }
+    button.secondary { background:transparent; color:var(--brand); border:1px solid var(--brand); }
+    .status { margin:0; font-weight:600; }
+    .status.ok { color:var(--ok); } .status.bad { color:var(--bad); }
+    .note { color:var(--muted); font-size:15px; margin-top:20px; }
+    select { font:inherit; padding:6px 8px; border-radius:8px; border:1px solid var(--line); background:var(--card); color:var(--ink); }
+    header { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand">♪ Piano Learning</div>
+      <select id="lang" aria-label="Language"></select>
+    </header>
+    <h1 id="title"></h1>
+    <p class="lead" id="lead"></p>
+    <ol id="steps"></ol>
+    <section class="tool">
+      <label for="link" id="checkLabel"></label>
+      <input id="link" type="url" inputmode="url" autocomplete="off" placeholder="https://drive.google.com/drive/folders/…" />
+      <p class="status" id="status" role="status"></p>
+      <div class="row">
+        <button id="copy" class="secondary" type="button"></button>
+        <a class="btn" id="tiny" href="https://tinyurl.com/" target="_blank" rel="noopener"></a>
+      </div>
+    </section>
+    <p class="note" id="note"></p>
+    <p class="note"><a id="privacy" href="privacy.html"></a> · RC Digital</p>
+  </main>
+  <script>
+    const T = {
+      it: { name:"Italiano", title:"Collega la tua cartella di brani", lead:"Bastano pochi minuti, una volta sola. Ti serve un account Google.",
+        steps:[["Crea una cartella su Google Drive","Per esempio «Piano». Puoi usare l'app Google Drive o drive.google.com."],["Carica i tuoi file","File MIDI (.mid) o MusicXML (.musicxml, .mxl). Puoi aggiungerne altri quando vuoi."],["Condividi la cartella","Condividi → Accesso generale → «Chiunque abbia il link» (Visualizzatore). Poi «Copia link»."],["Crea un link corto","Incolla qui sotto il link per controllarlo, poi apri TinyURL, incollalo e scegli un nome facile, per esempio mario-piano."],["Scrivilo sulla TV","Nell'app scrivi tinyurl.com/mario-piano e premi Collega. Fatto!"]],
+        checkLabel:"Incolla qui il link della cartella per controllarlo", ok:"✓ È il link di una cartella Drive: va bene.", bad:"✗ Questo non sembra il link di una cartella Google Drive.", copy:"Copia link", copied:"✓ Copiato", tiny:"Apri TinyURL",
+        note:"Usa solo file che hai il diritto di usare. Il link resta nel tuo telefono: questa pagina non invia dati a nessuno.", privacy:"Informativa privacy" },
+      en: { name:"English", title:"Connect your song folder", lead:"It takes a few minutes, only once. You need a Google account.",
+        steps:[["Create a folder in Google Drive","For example “Piano”. Use the Google Drive app or drive.google.com."],["Upload your files","MIDI (.mid) or MusicXML (.musicxml, .mxl) files. You can add more at any time."],["Share the folder","Share → General access → “Anyone with the link” (Viewer). Then “Copy link”."],["Make a short link","Paste the link below to check it, then open TinyURL, paste it and choose an easy name, e.g. mary-piano."],["Type it on the TV","In the app type tinyurl.com/mary-piano and press Connect. Done!"]],
+        checkLabel:"Paste the folder link here to check it", ok:"✓ This is a Drive folder link: all good.", bad:"✗ This does not look like a Google Drive folder link.", copy:"Copy link", copied:"✓ Copied", tiny:"Open TinyURL",
+        note:"Only use files you have the right to use. The link stays on your phone: this page sends no data anywhere.", privacy:"Privacy policy" },
+      es: { name:"Español", title:"Conecta tu carpeta de canciones", lead:"Son unos minutos, una sola vez. Necesitas una cuenta de Google.",
+        steps:[["Crea una carpeta en Google Drive","Por ejemplo «Piano». Usa la app de Google Drive o drive.google.com."],["Sube tus archivos","Archivos MIDI (.mid) o MusicXML (.musicxml, .mxl). Puedes añadir más cuando quieras."],["Comparte la carpeta","Compartir → Acceso general → «Cualquier persona con el enlace» (Lector). Luego «Copiar enlace»."],["Crea un enlace corto","Pega el enlace abajo para comprobarlo, abre TinyURL, pégalo y elige un nombre fácil, por ejemplo maria-piano."],["Escríbelo en la tele","En la app escribe tinyurl.com/maria-piano y pulsa Conectar. ¡Listo!"]],
+        checkLabel:"Pega aquí el enlace de la carpeta para comprobarlo", ok:"✓ Es el enlace de una carpeta de Drive: perfecto.", bad:"✗ No parece el enlace de una carpeta de Google Drive.", copy:"Copiar enlace", copied:"✓ Copiado", tiny:"Abrir TinyURL",
+        note:"Usa solo archivos que tengas derecho a usar. El enlace se queda en tu móvil: esta página no envía datos a nadie.", privacy:"Política de privacidad" },
+      fr: { name:"Français", title:"Connecte ton dossier de morceaux", lead:"Quelques minutes, une seule fois. Il te faut un compte Google.",
+        steps:[["Crée un dossier dans Google Drive","Par exemple « Piano ». Utilise l'app Google Drive ou drive.google.com."],["Ajoute tes fichiers","Fichiers MIDI (.mid) ou MusicXML (.musicxml, .mxl). Tu peux en ajouter d'autres quand tu veux."],["Partage le dossier","Partager → Accès général → « Tous les utilisateurs disposant du lien » (Lecteur). Puis « Copier le lien »."],["Crée un lien court","Colle le lien ci-dessous pour le vérifier, ouvre TinyURL, colle-le et choisis un nom simple, par exemple marie-piano."],["Écris-le sur la télé","Dans l'app, écris tinyurl.com/marie-piano et appuie sur Connecter. C'est fait !"]],
+        checkLabel:"Colle ici le lien du dossier pour le vérifier", ok:"✓ C'est bien le lien d'un dossier Drive.", bad:"✗ Ce n'est pas le lien d'un dossier Google Drive.", copy:"Copier le lien", copied:"✓ Copié", tiny:"Ouvrir TinyURL",
+        note:"Utilise seulement des fichiers que tu as le droit d'utiliser. Le lien reste sur ton téléphone : cette page n'envoie aucune donnée.", privacy:"Politique de confidentialité" },
+      de: { name:"Deutsch", title:"Verbinde deinen Notenordner", lead:"Ein paar Minuten, nur einmal. Du brauchst ein Google-Konto.",
+        steps:[["Erstelle einen Ordner in Google Drive","Zum Beispiel „Klavier“. Nutze die Google-Drive-App oder drive.google.com."],["Lade deine Dateien hoch","MIDI- (.mid) oder MusicXML-Dateien (.musicxml, .mxl). Du kannst jederzeit weitere hinzufügen."],["Gib den Ordner frei","Teilen → Allgemeiner Zugriff → „Jeder, der über den Link verfügt“ (Betrachter). Dann „Link kopieren“."],["Erstelle einen Kurzlink","Füge den Link unten zur Prüfung ein, öffne TinyURL, füge ihn ein und wähle einen einfachen Namen, z. B. anna-klavier."],["Gib ihn am Fernseher ein","Gib in der App tinyurl.com/anna-klavier ein und drücke Verbinden. Fertig!"]],
+        checkLabel:"Füge hier den Ordner-Link zur Prüfung ein", ok:"✓ Das ist ein Drive-Ordner-Link: alles gut.", bad:"✗ Das sieht nicht wie ein Google-Drive-Ordner-Link aus.", copy:"Link kopieren", copied:"✓ Kopiert", tiny:"TinyURL öffnen",
+        note:"Verwende nur Dateien, die du nutzen darfst. Der Link bleibt auf deinem Handy: Diese Seite sendet keine Daten.", privacy:"Datenschutz" },
+      pt: { name:"Português", title:"Liga a tua pasta de músicas", lead:"Uns minutos, uma só vez. Precisas de uma conta Google.",
+        steps:[["Cria uma pasta no Google Drive","Por exemplo «Piano». Usa a app Google Drive ou drive.google.com."],["Carrega os teus ficheiros","Ficheiros MIDI (.mid) ou MusicXML (.musicxml, .mxl). Podes juntar mais quando quiseres."],["Partilha a pasta","Partilhar → Acesso geral → «Qualquer pessoa com o link» (Leitor). Depois «Copiar link»."],["Cria um link curto","Cola o link abaixo para o verificar, abre o TinyURL, cola-o e escolhe um nome fácil, por exemplo ana-piano."],["Escreve-o na TV","Na app escreve tinyurl.com/ana-piano e carrega em Ligar. Pronto!"]],
+        checkLabel:"Cola aqui o link da pasta para o verificar", ok:"✓ É o link de uma pasta do Drive: está certo.", bad:"✗ Isto não parece o link de uma pasta do Google Drive.", copy:"Copiar link", copied:"✓ Copiado", tiny:"Abrir TinyURL",
+        note:"Usa só ficheiros que tens direito de usar. O link fica no teu telemóvel: esta página não envia dados.", privacy:"Política de privacidade" },
+      ru: { name:"Русский", title:"Подключите папку с произведениями", lead:"Несколько минут, всего один раз. Нужен аккаунт Google.",
+        steps:[["Создайте папку на Google Диске","Например, «Пианино». Используйте приложение Google Диск или drive.google.com."],["Загрузите файлы","Файлы MIDI (.mid) или MusicXML (.musicxml, .mxl). Добавлять новые можно в любой момент."],["Откройте доступ к папке","Поделиться → Общий доступ → «Все, у кого есть ссылка» (Читатель). Затем «Копировать ссылку»."],["Создайте короткую ссылку","Вставьте ссылку ниже для проверки, откройте TinyURL, вставьте её и выберите простое имя, например anna-piano."],["Введите её на телевизоре","В приложении введите tinyurl.com/anna-piano и нажмите «Подключить». Готово!"]],
+        checkLabel:"Вставьте сюда ссылку на папку для проверки", ok:"✓ Это ссылка на папку Диска — всё верно.", bad:"✗ Это не похоже на ссылку на папку Google Диска.", copy:"Копировать ссылку", copied:"✓ Скопировано", tiny:"Открыть TinyURL",
+        note:"Используйте только файлы, на которые у вас есть права. Ссылка остаётся на вашем телефоне: эта страница никуда не отправляет данные.", privacy:"Политика конфиденциальности" },
+      ja: { name:"日本語", title:"曲のフォルダを接続する", lead:"数分で終わり、最初の 1 回だけです。Google アカウントが必要です。",
+        steps:[["Google ドライブにフォルダを作る","例：「Piano」。Google ドライブアプリまたは drive.google.com を使います。"],["ファイルをアップロード","MIDI（.mid）または MusicXML（.musicxml、.mxl）ファイル。あとからいつでも追加できます。"],["フォルダを共有","共有 → 一般的なアクセス → 「リンクを知っている全員」（閲覧者）。そのあと「リンクをコピー」。"],["短いリンクを作る","下にリンクを貼り付けて確認し、TinyURL を開いて貼り付け、覚えやすい名前（例：hana-piano）を付けます。"],["テレビで入力","アプリで tinyurl.com/hana-piano と入力し「接続」を押せば完了です。"]],
+        checkLabel:"確認のため、ここにフォルダのリンクを貼り付けてください", ok:"✓ ドライブのフォルダのリンクです。問題ありません。", bad:"✗ Google ドライブのフォルダのリンクではないようです。", copy:"リンクをコピー", copied:"✓ コピーしました", tiny:"TinyURL を開く",
+        note:"使用する権利のあるファイルだけを使ってください。リンクはお使いの電話に残ります。このページはデータを送信しません。", privacy:"プライバシーポリシー" },
+      zh: { name:"中文（简体）", title:"连接你的曲目文件夹", lead:"只需几分钟，只做一次。你需要一个 Google 账号。",
+        steps:[["在 Google 云端硬盘中新建文件夹","例如“Piano”。使用 Google 云端硬盘应用或 drive.google.com。"],["上传你的文件","MIDI（.mid）或 MusicXML（.musicxml、.mxl）文件。以后随时可以添加。"],["共享文件夹","共享 → 一般访问权限 →“知道链接的任何人”（查看者）。然后点击“复制链接”。"],["创建短链接","把链接粘贴到下方检查，然后打开 TinyURL，粘贴并起一个好记的名字，例如 li-piano。"],["在电视上输入","在应用中输入 tinyurl.com/li-piano 并按“连接”。完成！"]],
+        checkLabel:"把文件夹链接粘贴到这里进行检查", ok:"✓ 这是云端硬盘文件夹链接，没问题。", bad:"✗ 这看起来不是 Google 云端硬盘文件夹链接。", copy:"复制链接", copied:"✓ 已复制", tiny:"打开 TinyURL",
+        note:"请只使用你有权使用的文件。链接只保存在你的手机上：本页面不会发送任何数据。", privacy:"隐私政策" },
+      ko: { name:"한국어", title:"곡 폴더 연결하기", lead:"몇 분이면 되고, 한 번만 하면 됩니다. Google 계정이 필요합니다.",
+        steps:[["Google 드라이브에 폴더 만들기","예: ‘Piano’. Google 드라이브 앱이나 drive.google.com을 사용하세요."],["파일 올리기","MIDI(.mid) 또는 MusicXML(.musicxml, .mxl) 파일. 언제든지 더 추가할 수 있습니다."],["폴더 공유","공유 → 일반 액세스 → ‘링크가 있는 모든 사용자’(뷰어). 그런 다음 ‘링크 복사’."],["짧은 링크 만들기","아래에 링크를 붙여 넣어 확인한 뒤 TinyURL을 열고 붙여 넣어 쉬운 이름(예: minji-piano)을 정하세요."],["TV에서 입력","앱에서 tinyurl.com/minji-piano를 입력하고 ‘연결’을 누르면 끝!"]],
+        checkLabel:"확인하려면 여기에 폴더 링크를 붙여 넣으세요", ok:"✓ 드라이브 폴더 링크입니다. 좋아요.", bad:"✗ Google 드라이브 폴더 링크가 아닌 것 같습니다.", copy:"링크 복사", copied:"✓ 복사됨", tiny:"TinyURL 열기",
+        note:"사용할 권리가 있는 파일만 사용하세요. 링크는 휴대폰에만 남으며, 이 페이지는 어떤 데이터도 보내지 않습니다.", privacy:"개인정보 처리방침" },
+    };
+    const $ = (id) => document.getElementById(id);
+    const params = new URLSearchParams(location.search);
+    const device = (navigator.language || "en").slice(0, 2);
+    let lang = T[params.get("lang")] ? params.get("lang") : T[device] ? device : "en";
+    for (const [code, d] of Object.entries(T)) $("lang").add(new Option(d.name, code));
+    $("lang").addEventListener("change", (e) => render(e.target.value));
+    function render(code) {
+      lang = code; const d = T[code];
+      document.documentElement.lang = code; $("lang").value = code;
+      $("title").textContent = d.title; $("lead").textContent = d.lead;
+      $("steps").replaceChildren(...d.steps.map(([head, body]) => {
+        const li = document.createElement("li"), s = document.createElement("strong");
+        s.textContent = head; li.append(s, body); return li;
+      }));
+      for (const k of ["checkLabel", "copy", "tiny", "note", "privacy"]) $(k).textContent = d[k];
+      check();
+    }
+    function folderLink(value) {
+      try {
+        const u = new URL(value.trim());
+        return u.hostname === "drive.google.com" && /\/folders\/[\w-]{10,}/.test(u.pathname);
+      } catch { return false; }
+    }
+    function check() {
+      const v = $("link").value.trim(), s = $("status");
+      if (!v) { s.textContent = ""; s.className = "status"; return; }
+      const ok = folderLink(v);
+      s.textContent = ok ? T[lang].ok : T[lang].bad;
+      s.className = "status " + (ok ? "ok" : "bad");
+    }
+    $("link").addEventListener("input", check);
+    $("copy").addEventListener("click", async () => {
+      try { await navigator.clipboard.writeText($("link").value.trim()); $("copy").textContent = T[lang].copied; }
+      catch { $("link").select(); }
+      setTimeout(() => ($("copy").textContent = T[lang].copy), 2000);
+    });
+    render(lang);
+  </script>
+</body>
+</html>

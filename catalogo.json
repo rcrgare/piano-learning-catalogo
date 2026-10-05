@@ -1,0 +1,9 @@
+{
+  "esempio-nome-file.mid": {
+    "title": "Titolo del brano",
+    "composer": "Compositore",
+    "license": "CC BY-SA 3.0 DE",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+    "attribution": "MIDI: Nome Autore del file · sito di provenienza"
+  }
+}
