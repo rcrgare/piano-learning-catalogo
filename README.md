@@ -1,53 +1,40 @@
-# Catalogo Piano Learning
+# Piano Learning – Catalogo
 
-Questo spazio contiene i brani MIDI per pianoforte usati dall'app **Piano Learning**. L'app li legge da qui in sola lettura.
+Brani e spartiti per l'app **Piano Learning** (RC Digital). Questo spazio è **pubblico in sola lettura**:
+l'app legge i file da qui, solo RC Digital può aggiungerli o toglierli.
 
-## Cosa contiene
+## Contenuto
+- `brani/` – file MIDI (uno per brano).
+- `catalogo.json` – scheda di ogni brano: titolo, compositore, opera, durata, licenza, autore del MIDI, fonte e crediti.
+- `spartiti/<nome-brano>/1.png, 2.png, …` – pagine dello spartito, ricavate dal PDF Mutopia del brano (stessa licenza).
+- `spartiti.json` – quante pagine ha lo spartito di ogni brano (chiave = nome del file in `brani/`).
+- `privacy.html`, `collega.html` – informativa privacy e pagina aperta dal codice QR (pubblicate con GitHub Pages).
 
-- `catalogo.json`: l'elenco dei brani. Ogni scheda riporta titolo, compositore, file, durata, licenza, autore del file MIDI e crediti.
-- `brani/`: i file `.mid`.
+## Regole
+- SOLO brani di **pubblico dominio** o con **licenza libera che permette l'uso commerciale** (CC0, CC BY, CC BY-SA). Mai NC (non commerciale) o ND.
+- Conta la licenza del **file**, non solo della musica: un brano di Beethoven trascritto da un sito commerciale NON è libero.
+- Ogni file in `brani/` deve avere la sua scheda in `catalogo.json`, con i crediti: le licenze CC BY / CC BY-SA obbligano a citare l'autore del file.
 
-## Regole: cosa si può caricare
-
-Ogni brano deve rispettare **due condizioni**:
-
-1. **La composizione è di pubblico dominio.** Il compositore è morto da più di 70 anni, oppure si tratta di musica tradizionale. Canzoni pop, rock e colonne sonore moderne **non** vanno caricate, anche se il MIDI si trova gratis in rete.
-2. **Il file MIDI ha una licenza che consente l'uso commerciale.** Sono ammesse:
-   - Pubblico dominio / CC0
-   - CC BY (obbligo di citare l'autore)
-   - CC BY-SA (obbligo di citare l'autore; il file va ridistribuito con la stessa licenza)
-
-   **Non** sono ammesse: CC BY-NC (non commerciale), CC BY-ND, licenze sconosciute.
-
-## Fonte attuale
-
-Tutti i brani iniziali provengono dal **Mutopia Project** (https://www.mutopiaproject.org). I MIDI sono stati generati dai sorgenti LilyPond originali, senza modifiche alle note. La licenza di ogni brano è quella indicata dal trascrittore nel sorgente ed è riportata in `catalogo.json`.
-
-## Come aggiungere un brano
-
-1. Verifica che il brano rispetti le due regole qui sopra.
-2. Apri la cartella `brani`, poi **Add file → Upload files**, carica il `.mid` (nome in minuscolo, con trattini) e conferma con **Commit changes**.
-3. Apri `catalogo.json`, clicca la matita (Edit) e aggiungi una scheda in fondo all'elenco `brani`, copiando lo schema di quelle esistenti:
-
+## Scheda di un brano (`catalogo.json` → elenco `brani`)
 ```json
 {
-  "id": "compositore-titolo",
-  "titolo": "Titolo",
-  "compositore": "Nome Cognome",
-  "opera": "Op. 1",
-  "file": "brani/compositore-titolo.mid",
-  "durata_sec": 120,
-  "licenza": "Pubblico dominio",
-  "licenza_url": null,
-  "autore_midi": "Nome del trascrittore",
+  "id": "chopin-nocturne",
+  "titolo": "Nocturne",
+  "compositore": "Fryderyk Chopin",
+  "opera": "Op. 9, No. 2",
+  "file": "brani/chopin-nocturne.mid",
+  "durata_sec": 202,
+  "licenza": "CC BY-SA 3.0",
+  "licenza_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "autore_midi": "Renato Biolcati Rinaldi",
   "fonte": "Mutopia Project",
-  "fonte_url": "https://...",
-  "crediti": "MIDI: Nome / Fonte (link) — Licenza: ..."
+  "fonte_url": "https://www.mutopiaproject.org/ftp/ChopinFF/O9/chopin_nocturne_op9_n2/",
+  "crediti": "MIDI: Renato Biolcati Rinaldi / Mutopia Project (…) — Licenza: CC BY-SA 3.0 (…)"
 }
 ```
 
-4. Conferma con **Commit changes**. L'app vedrà il nuovo brano entro pochi minuti.
-
-## Crediti
-
-I crediti di ogni brano sono nel campo `crediti` di `catalogo.json`. L'app li mostra nella schermata «Informazioni».
+## Come aggiungere un brano
+1. Carica il MIDI nella cartella `brani` (Add file → Upload files → Commit changes).
+2. Aggiungi la sua scheda in `catalogo.json`.
+3. Facoltativo: aggiungi le pagine dello spartito in `spartiti/<nome-brano>/` e il numero di pagine in `spartiti.json`.
+Entro qualche minuto il brano compare nell'app (tasto «Catalogo Piano Learning»).
