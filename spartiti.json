@@ -271,6 +271,10 @@
   "turpin-the-harlem-rag.mid": 3,
   "turpin-the-st-louis-rag.mid": 3,
   "verdi-la-traviata-n2-brindisi.mid": 4,
-  "verdi-la-traviata-preludio.mid": 3
+  "verdi-la-traviata-preludio.mid": 3,
+  "la-campanella.mid": 9
+ },
+ "fonti": {
+  "la-campanella.mid": "Liszt, Grandes Études de Paganini S.141 n. 3 «La Campanella» – Breitkopf & Härtel, ed. F. Busoni (Franz Liszts Musikalische Werke); scansione IMSLP #05380 – pubblico dominio"
  }
 }
