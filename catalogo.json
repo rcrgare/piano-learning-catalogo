@@ -3,7 +3,7 @@
   "versione": 1,
   "aggiornato": "2026-10-05",
   "nota": "Solo composizioni di pubblico dominio con file MIDI sotto licenza che consente l'uso commerciale (Pubblico dominio, CC BY, CC BY-SA). Mostrare il campo 'crediti' nella schermata Informazioni.",
-  "totale_brani": 271,
+  "totale_brani": 273,
   "brani": [
     {
       "id": "strauss-the-blue-danube-waltz-main-theme",
@@ -3798,6 +3798,34 @@
       "fonte": "Mutopia Project",
       "fonte_url": "https://www.mutopiaproject.org/ftp/TchaikovskyPI/O37/Tschaikowsky-op37.1/",
       "crediti": "MIDI: Till Rettig / Mutopia Project (https://www.mutopiaproject.org/ftp/TchaikovskyPI/O37/Tschaikowsky-op37.1/) — Licenza: Pubblico dominio"
+    },
+    {
+      "id": "tradizionale-jingle-bells",
+      "titolo": "Jingle Bells (facile)",
+      "compositore": "James Lord Pierpont",
+      "opera": "1857",
+      "file": "brani/tradizionale-jingle-bells.mid",
+      "durata_sec": 39,
+      "licenza": "Pubblico dominio",
+      "licenza_url": null,
+      "autore_midi": "RC Digital (Piano Learning)",
+      "fonte": "Piano Learning",
+      "fonte_url": "https://rcrgare.github.io/piano-learning-catalogo/",
+      "crediti": "MIDI: RC Digital (Piano Learning), brano facile per principianti — Licenza: Pubblico dominio"
+    },
+    {
+      "id": "tradizionale-fra-martino",
+      "titolo": "Fra Martino (facile)",
+      "compositore": "Tradizionale",
+      "opera": "Frère Jacques",
+      "file": "brani/tradizionale-fra-martino.mid",
+      "durata_sec": 22,
+      "licenza": "Pubblico dominio",
+      "licenza_url": null,
+      "autore_midi": "RC Digital (Piano Learning)",
+      "fonte": "Piano Learning",
+      "fonte_url": "https://rcrgare.github.io/piano-learning-catalogo/",
+      "crediti": "MIDI: RC Digital (Piano Learning), brano facile per principianti — Licenza: Pubblico dominio"
     }
   ]
 }
