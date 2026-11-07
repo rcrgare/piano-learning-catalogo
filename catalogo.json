@@ -1,7 +1,7 @@
 {
   "nome": "Catalogo Piano Learning",
   "versione": 1,
-  "aggiornato": "2026-11-06",
+  "aggiornato": "2026-11-07",
   "nota": "Solo composizioni di pubblico dominio con file MIDI sotto licenza che consente l'uso commerciale (Pubblico dominio, CC BY, CC BY-SA). Mostrare il campo 'crediti' nella schermata Informazioni.",
   "totale_brani": 700,
   "brani": [
@@ -749,17 +749,17 @@
     },
     {
       "id": "bizet-prelude",
-      "titolo": "Prelude",
+      "titolo": "Carmen - Prelude",
       "compositore": "Georges Bizet",
-      "opera": "Op. 59, No. 2",
+      "opera": null,
       "file": "brani/bizet-prelude.mid",
-      "durata_sec": 88,
-      "licenza": "Pubblico dominio",
-      "licenza_url": null,
-      "autore_midi": "Federico Bruni",
+      "durata_sec": 165,
+      "licenza": "CC BY-SA 2.5",
+      "licenza_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+      "autore_midi": "Alex O'S",
       "fonte": "Mutopia Project",
       "fonte_url": "https://www.mutopiaproject.org/ftp/BizetG/prelude/",
-      "crediti": "MIDI: Federico Bruni / Mutopia Project (https://www.mutopiaproject.org/ftp/BizetG/prelude/) — Licenza: Pubblico dominio"
+      "crediti": "MIDI: Alex O'S / Mutopia Project (https://www.mutopiaproject.org/ftp/BizetG/prelude/) — Licenza: CC BY-SA 2.5 (https://creativecommons.org/licenses/by-sa/2.5/)"
     },
     {
       "id": "brahms-2-intermezzo",
