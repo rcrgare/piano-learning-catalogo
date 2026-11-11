@@ -1,9 +1,9 @@
 {
   "nome": "Catalogo Piano Learning",
   "versione": 1,
-  "aggiornato": "2026-11-07",
+  "aggiornato": "2026-11-11",
   "nota": "Solo composizioni di pubblico dominio con file MIDI sotto licenza che consente l'uso commerciale (Pubblico dominio, CC BY, CC BY-SA). Mostrare il campo 'crediti' nella schermata Informazioni.",
-  "totale_brani": 700,
+  "totale_brani": 702,
   "brani": [
     {
       "id": "strauss-the-blue-danube-waltz-main-theme",
@@ -9804,6 +9804,34 @@
       "fonte": "Piano Learning",
       "fonte_url": "https://rcrgare.github.io/piano-learning-catalogo/",
       "crediti": "Tradizionale (Inghilterra). MIDI: RC Digital (Piano Learning), arrangiamento intermedio — Licenza: Pubblico dominio"
+    },
+    {
+      "id": "facile-hallelujah-handel-1",
+      "titolo": "Alleluia (Hallelujah) dal Messia ★",
+      "compositore": "Brani facili (Easy pieces)",
+      "opera": null,
+      "file": "brani/facile-hallelujah-handel-1.mid",
+      "durata_sec": 42,
+      "licenza": "Pubblico dominio",
+      "licenza_url": null,
+      "autore_midi": "RC Digital (Piano Learning)",
+      "fonte": "Piano Learning",
+      "fonte_url": "https://rcrgare.github.io/piano-learning-catalogo/",
+      "crediti": "Georg Friedrich Händel, Il Messia HWV 56 (1741). MIDI: RC Digital (Piano Learning), arrangiamento facile — Licenza: Pubblico dominio"
+    },
+    {
+      "id": "facile-hallelujah-handel-2",
+      "titolo": "Alleluia (Hallelujah) dal Messia ★★",
+      "compositore": "Brani facili (Easy pieces)",
+      "opera": null,
+      "file": "brani/facile-hallelujah-handel-2.mid",
+      "durata_sec": 42,
+      "licenza": "Pubblico dominio",
+      "licenza_url": null,
+      "autore_midi": "RC Digital (Piano Learning)",
+      "fonte": "Piano Learning",
+      "fonte_url": "https://rcrgare.github.io/piano-learning-catalogo/",
+      "crediti": "Georg Friedrich Händel, Il Messia HWV 56 (1741). MIDI: RC Digital (Piano Learning), arrangiamento intermedio — Licenza: Pubblico dominio"
     }
   ]
 }
