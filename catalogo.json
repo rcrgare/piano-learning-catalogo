@@ -3,7 +3,7 @@
   "versione": 1,
   "aggiornato": "2026-11-11",
   "nota": "Solo composizioni di pubblico dominio con file MIDI sotto licenza che consente l'uso commerciale (Pubblico dominio, CC BY, CC BY-SA). Mostrare il campo 'crediti' nella schermata Informazioni.",
-  "totale_brani": 702,
+  "totale_brani": 706,
   "brani": [
     {
       "id": "strauss-the-blue-danube-waltz-main-theme",
@@ -9832,6 +9832,62 @@
       "fonte": "Piano Learning",
       "fonte_url": "https://rcrgare.github.io/piano-learning-catalogo/",
       "crediti": "Georg Friedrich Händel, Il Messia HWV 56 (1741). MIDI: RC Digital (Piano Learning), arrangiamento intermedio — Licenza: Pubblico dominio"
+    },
+    {
+      "id": "facile-angels-we-have-heard-on-high-1",
+      "titolo": "Angels We Have Heard on High (Angeli delle campagne) ★",
+      "compositore": "Brani facili (Easy pieces)",
+      "opera": null,
+      "file": "brani/facile-angels-we-have-heard-on-high-1.mid",
+      "durata_sec": 53,
+      "licenza": "Pubblico dominio",
+      "licenza_url": null,
+      "autore_midi": "RC Digital (Piano Learning)",
+      "fonte": "Piano Learning",
+      "fonte_url": "https://rcrgare.github.io/piano-learning-catalogo/",
+      "crediti": "Tradizionale francese («Les Anges dans nos campagnes»); testo inglese di James Chadwick. MIDI: RC Digital (Piano Learning), arrangiamento facile — Licenza: Pubblico dominio"
+    },
+    {
+      "id": "facile-angels-we-have-heard-on-high-2",
+      "titolo": "Angels We Have Heard on High (Angeli delle campagne) ★★",
+      "compositore": "Brani facili (Easy pieces)",
+      "opera": null,
+      "file": "brani/facile-angels-we-have-heard-on-high-2.mid",
+      "durata_sec": 53,
+      "licenza": "Pubblico dominio",
+      "licenza_url": null,
+      "autore_midi": "RC Digital (Piano Learning)",
+      "fonte": "Piano Learning",
+      "fonte_url": "https://rcrgare.github.io/piano-learning-catalogo/",
+      "crediti": "Tradizionale francese («Les Anges dans nos campagnes»); testo inglese di James Chadwick. MIDI: RC Digital (Piano Learning), arrangiamento intermedio — Licenza: Pubblico dominio"
+    },
+    {
+      "id": "facile-jolly-old-saint-nicholas-1",
+      "titolo": "Jolly Old Saint Nicholas ★",
+      "compositore": "Brani facili (Easy pieces)",
+      "opera": null,
+      "file": "brani/facile-jolly-old-saint-nicholas-1.mid",
+      "durata_sec": 19,
+      "licenza": "Pubblico dominio",
+      "licenza_url": null,
+      "autore_midi": "RC Digital (Piano Learning)",
+      "fonte": "Piano Learning",
+      "fonte_url": "https://rcrgare.github.io/piano-learning-catalogo/",
+      "crediti": "Tradizionale americano (poesia di Emily Huntington Miller, 1865). MIDI: RC Digital (Piano Learning), arrangiamento facile — Licenza: Pubblico dominio"
+    },
+    {
+      "id": "facile-jolly-old-saint-nicholas-2",
+      "titolo": "Jolly Old Saint Nicholas ★★",
+      "compositore": "Brani facili (Easy pieces)",
+      "opera": null,
+      "file": "brani/facile-jolly-old-saint-nicholas-2.mid",
+      "durata_sec": 19,
+      "licenza": "Pubblico dominio",
+      "licenza_url": null,
+      "autore_midi": "RC Digital (Piano Learning)",
+      "fonte": "Piano Learning",
+      "fonte_url": "https://rcrgare.github.io/piano-learning-catalogo/",
+      "crediti": "Tradizionale americano (poesia di Emily Huntington Miller, 1865). MIDI: RC Digital (Piano Learning), arrangiamento intermedio — Licenza: Pubblico dominio"
     }
   ]
 }
